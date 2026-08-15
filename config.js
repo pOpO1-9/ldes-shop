@@ -1,10 +1,22 @@
-/* LDES shop — edit products & checkout links here */
+/* LDES shop — packs, gallery editions, NFT hooks */
 
 window.LDES_CONFIG = {
   currencySymbol: "$",
   tiktok: "https://www.tiktok.com/@ldes.ai",
-  // Used when custom.checkoutUrl is empty
   contactEmail: "",
+
+  /**
+   * NFT / blockchain — Phase 2
+   * Keep downloads on Gumroad now. When ready, set enabled:true and paste
+   * mint URLs (Thirdweb / Manifold / Zora) per gallery piece.
+   * Recommended first chain: Base (cheap) or Solana.
+   */
+  nft: {
+    enabled: false,
+    chainLabel: "Base",
+    comingCopy:
+      "On-chain editions coming soon — limited mints with ownership on the blockchain. File download stays available now.",
+  },
 
   products: [
     {
@@ -36,6 +48,207 @@ window.LDES_CONFIG = {
         "Personal use on your devices",
       ],
       checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_W",
+    },
+    {
+      id: "dream-clips-02",
+      name: "Dream Clip Pack 02 — Pocket Worlds",
+      price: 29,
+      badge: "5 clips · Pocket worlds",
+      image: "assets/pack-clips-02.jpg",
+      description:
+        "Teacup villages, glass-bottle oceans, moonlit keyholes. Same LDES calm, new doors.",
+      includes: [
+        "5 × MP4 vertical clips (~5–15s)",
+        "1080×1920, ready to post",
+        "Commercial use for your socials",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+    {
+      id: "wallpaper-02",
+      name: "Wallpaper Pack 02",
+      price: 12,
+      badge: "8 stills · Deep quiet",
+      image: "assets/pack-walls-02.jpg",
+      description:
+        "Eight fresh lockscreens — rain courtyards, silent libraries, soft neon fog.",
+      includes: [
+        "8 × high-res stills",
+        "Phone + desktop sizes",
+        "Personal use on your devices",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+    {
+      id: "seamless-loops-01",
+      name: "Seamless Loop Pack 01",
+      price: 24,
+      badge: "4 loops · ambient",
+      image: "assets/pack-loops.jpg",
+      description:
+        "Four seamless ambient loops for Stories, streams, and calm edits.",
+      includes: [
+        "4 × seamless MP4 loops",
+        "1080×1920 vertical",
+        "Social + stream overlay use",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+    {
+      id: "creator-bundle-01",
+      name: "Creator Bundle 01",
+      price: 35,
+      badge: "clips + walls · save $6",
+      image: "assets/pack-bundle.jpg",
+      description:
+        "Dream Clip Pack 01 + Wallpaper Pack 01. Best starter set.",
+      includes: [
+        "All 5 clips from Pack 01",
+        "All 8 wallpapers from Pack 01",
+        "One download, both packs",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+  ],
+
+  /**
+   * Gallery editions — browse like a museum, buy file now,
+   * mint NFT later when nft.enabled + mintUrl are set.
+   */
+  gallery: [
+    {
+      id: "ed-mist-harbor",
+      title: "Mist Harbor",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_01_Mist_Harbor.jpg",
+      blurb: "Boat bow into fog — green portal on the water.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-fog-train",
+      title: "Fog Train",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_02_Fog_Train.jpg",
+      blurb: "Night rails through pine mist toward a lit house.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-library",
+      title: "Library Letters",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_03_Library_Letters.jpg",
+      blurb: "Shelves that spell the lab — LDES hidden in the dark.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-mountain",
+      title: "Mountain Keyhole",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_04_Mountain_Keyhole.jpg",
+      blurb: "A face in stone. A keyhole under the eye.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-forge",
+      title: "Forge Street",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_05_Forge_Street.jpg",
+      blurb: "Warm forge light under a cold mountain wall.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-courtyard",
+      title: "Courtyard Dusk",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_06_Courtyard_Dusk.jpg",
+      blurb: "Lanterns, runes, and smoke at the edge of evening.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-lighthouse",
+      title: "Lighthouse Path",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_07_Lighthouse_Path.jpg",
+      blurb: "Stone steps into black water and a single beam.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-cabin",
+      title: "Cabin Reflection",
+      series: "Wallpaper Pack 01",
+      image: "assets/gallery/LDES_Wall_08_Cabin_Reflection.jpg",
+      blurb: "Empty boat. One window lit across the mist.",
+      edition: "Open edition · file",
+      supply: "∞ file / NFT TBD",
+      priceFile: 12,
+      buyPackId: "wallpaper-01",
+      mintUrl: "",
+      status: "live",
+    },
+    {
+      id: "ed-teacup",
+      title: "Teacup Village",
+      series: "Dream Clip Pack 02",
+      image: "assets/pack-clips-02.jpg",
+      blurb: "A glowing town sealed in porcelain — Pack 02.",
+      edition: "Limited mint soon",
+      supply: "NFT 1/25 planned",
+      priceFile: 29,
+      buyPackId: "dream-clips-02",
+      mintUrl: "",
+      status: "soon",
+    },
+    {
+      id: "ed-bottle",
+      title: "Bottle Ocean",
+      series: "Dream Clip Pack 02",
+      image: "assets/pack-walls-02.jpg",
+      blurb: "Storm sea corked on a rainy sill.",
+      edition: "Limited mint soon",
+      supply: "NFT 1/25 planned",
+      priceFile: 29,
+      buyPackId: "dream-clips-02",
+      mintUrl: "",
+      status: "soon",
     },
   ],
 

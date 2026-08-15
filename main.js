@@ -3,7 +3,12 @@
   if (!config) return;
 
   const catalog = document.getElementById("catalog");
+  const galleryEl = document.getElementById("gallery");
+  const galleryFilters = document.getElementById("gallery-filters");
+  const nftBanner = document.getElementById("nft-banner");
   const dialog = document.getElementById("checkout-note");
+  const lightbox = document.getElementById("piece-lightbox");
+  const lightboxClose = document.getElementById("lightbox-close");
   const customForm = document.getElementById("custom-form");
   const customReady = document.getElementById("custom-ready");
   const customSummary = document.getElementById("custom-summary");
@@ -12,6 +17,7 @@
   const top = document.querySelector(".top");
 
   let pendingCheckoutUrl = "";
+  let galleryFilter = "all";
 
   function money(n) {
     return config.currencySymbol + n;
@@ -31,6 +37,14 @@
     } else {
       alert("Checkout link unavailable");
     }
+  }
+
+  function productById(id) {
+    return (config.products || []).find((p) => p.id === id);
+  }
+
+  function isSoon(p) {
+    return !p || p.status === "soon" || !hasUrl(p.checkoutUrl);
   }
 
   function includesList(items) {
@@ -61,38 +75,184 @@
     return Promise.resolve(false);
   }
 
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  /* ——— Packs ——— */
   if (catalog) {
     catalog.innerHTML = config.products
-      .map(
-        (p) => `
-      <article class="product">
+      .map((p, i) => {
+        const soon = isSoon(p);
+        const delay = Math.min(i * 0.05, 0.25);
+        return `
+      <article class="product${soon ? " is-soon" : ""}" style="animation-delay:${delay}s">
         <div class="product-visual">
           <img src="${p.image}" alt="" loading="lazy" />
-          ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ""}
+          ${
+            soon
+              ? `<span class="product-badge soon">soon</span>`
+              : p.badge
+                ? `<span class="product-badge">${p.badge}</span>`
+                : ""
+          }
         </div>
         <div class="product-body">
           <div class="product-meta">
-            <h3>${p.name}</h3>
+            <h3>${escapeHtml(p.name)}</h3>
             <span class="price">${money(p.price)}</span>
           </div>
-          <p class="desc">${p.description}</p>
+          <p class="desc">${escapeHtml(p.description)}</p>
           ${includesList(p.includes)}
-          <button class="btn primary small" type="button" data-checkout="${p.id}">
-            Get pack
-          </button>
+          ${
+            soon
+              ? `<button class="btn ghost small" type="button" disabled>Coming soon</button>`
+              : `<button class="btn primary small" type="button" data-checkout="${p.id}">Get pack</button>`
+          }
         </div>
-      </article>`
-      )
+      </article>`;
+      })
       .join("");
 
     catalog.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-checkout]");
       if (!btn) return;
-      const product = config.products.find((p) => p.id === btn.dataset.checkout);
-      buy(product && product.checkoutUrl);
+      const product = productById(btn.dataset.checkout);
+      if (!product || isSoon(product)) return;
+      buy(product.checkoutUrl);
     });
   }
 
+  /* ——— Gallery ——— */
+  if (nftBanner && config.nft) {
+    nftBanner.textContent = config.nft.enabled
+      ? "NFT minting is live on " + (config.nft.chainLabel || "chain") + "."
+      : config.nft.comingCopy || "";
+  }
+
+  function filteredGallery() {
+    const list = config.gallery || [];
+    if (galleryFilter === "all") return list;
+    return list.filter((g) => g.status === galleryFilter);
+  }
+
+  function renderGallery() {
+    if (!galleryEl) return;
+    const list = filteredGallery();
+    if (!list.length) {
+      galleryEl.innerHTML =
+        '<p class="gallery-empty">No pieces in this filter yet.</p>';
+      return;
+    }
+    galleryEl.innerHTML = list
+      .map((g, i) => {
+        const soon = g.status === "soon";
+        return `
+      <button type="button" class="gallery-card${soon ? " is-soon" : ""}" data-piece="${g.id}" style="animation-delay:${Math.min(i * 0.04, 0.28)}s">
+        <span class="gallery-frame">
+          <img src="${g.image}" alt="${escapeHtml(g.title)}" loading="lazy" />
+        </span>
+        <span class="gallery-cap">
+          <span class="gallery-title">${escapeHtml(g.title)}</span>
+          <span class="gallery-sub">${escapeHtml(g.edition)}</span>
+        </span>
+      </button>`;
+      })
+      .join("");
+  }
+
+  function openPiece(id) {
+    const g = (config.gallery || []).find((x) => x.id === id);
+    if (!g || !lightbox) return;
+
+    const img = document.getElementById("lightbox-image");
+    const series = document.getElementById("lightbox-series");
+    const title = document.getElementById("lightbox-title");
+    const blurb = document.getElementById("lightbox-blurb");
+    const meta = document.getElementById("lightbox-meta");
+    const actions = document.getElementById("lightbox-actions");
+
+    if (img) {
+      img.src = g.image;
+      img.alt = g.title;
+    }
+    if (series) series.textContent = g.series || "";
+    if (title) title.textContent = g.title;
+    if (blurb) blurb.textContent = g.blurb || "";
+    if (meta) {
+      meta.textContent = [g.edition, g.supply].filter(Boolean).join(" · ");
+    }
+
+    const pack = productById(g.buyPackId);
+    const canBuyFile = pack && !isSoon(pack);
+    const canMint = config.nft && config.nft.enabled && hasUrl(g.mintUrl);
+
+    let html = "";
+    if (canBuyFile) {
+      html += `<button type="button" class="btn primary" data-buy-file="${pack.id}">Buy file · ${money(g.priceFile || pack.price)}</button>`;
+    } else {
+      html += `<button type="button" class="btn ghost" disabled>File · coming soon</button>`;
+    }
+
+    if (canMint) {
+      html += `<button type="button" class="btn ghost" data-mint="${g.id}">Mint NFT</button>`;
+    } else {
+      html += `<button type="button" class="btn ghost" disabled>Mint NFT · soon</button>`;
+    }
+
+    if (actions) actions.innerHTML = html;
+
+    if (typeof lightbox.showModal === "function") lightbox.showModal();
+  }
+
+  if (galleryEl) {
+    renderGallery();
+    galleryEl.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-piece]");
+      if (!card) return;
+      openPiece(card.dataset.piece);
+    });
+  }
+
+  if (galleryFilters) {
+    galleryFilters.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-filter]");
+      if (!btn) return;
+      galleryFilter = btn.dataset.filter;
+      galleryFilters.querySelectorAll(".filter").forEach((b) => {
+        b.classList.toggle("is-active", b === btn);
+      });
+      renderGallery();
+    });
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+      const buyBtn = e.target.closest("[data-buy-file]");
+      if (buyBtn) {
+        const pack = productById(buyBtn.dataset.buyFile);
+        if (pack) buy(pack.checkoutUrl);
+        return;
+      }
+      const mintBtn = e.target.closest("[data-mint]");
+      if (mintBtn) {
+        const g = (config.gallery || []).find((x) => x.id === mintBtn.dataset.mint);
+        if (g) buy(g.mintUrl);
+      }
+    });
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", () => {
+      if (lightbox) lightbox.close();
+    });
+  }
+
+  /* ——— Custom ——— */
   if (customPrice) {
     customPrice.textContent = money(config.custom.price);
   }

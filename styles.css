@@ -344,6 +344,218 @@ a {
   font-size: 0.98rem;
 }
 
+.gallery-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: -0.5rem 0 1.25rem;
+}
+
+.filter {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter.is-active,
+.filter:hover {
+  color: #001018;
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.nft-banner {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(46, 230, 255, 0.22);
+  border-radius: 14px;
+  background: rgba(46, 230, 255, 0.06);
+  color: #b8eef8;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-card {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font);
+  animation: rise 0.65s ease both;
+}
+
+.gallery-frame {
+  display: block;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #050505;
+  position: relative;
+}
+
+.gallery-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(46, 230, 255, 0.08);
+  pointer-events: none;
+}
+
+.gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.gallery-card:hover .gallery-frame {
+  border-color: rgba(46, 230, 255, 0.35);
+  box-shadow: 0 0 24px rgba(46, 230, 255, 0.12);
+}
+
+.gallery-card:hover .gallery-frame img {
+  transform: scale(1.04);
+}
+
+.gallery-card.is-soon {
+  opacity: 0.75;
+}
+
+.gallery-cap {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0 0.15rem;
+}
+
+.gallery-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.gallery-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.gallery-empty {
+  color: var(--muted);
+}
+
+.piece-dialog {
+  width: min(920px, calc(100vw - 1.5rem));
+  max-width: 920px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.piece-dialog .lightbox-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.65rem;
+  z-index: 2;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.piece-layout {
+  display: grid;
+}
+
+@media (min-width: 760px) {
+  .piece-layout {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+.piece-media {
+  background: #050505;
+  min-height: 280px;
+}
+
+.piece-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.piece-info {
+  padding: 1.35rem 1.25rem 1.5rem;
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.piece-series {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan-soft);
+}
+
+.piece-info h3 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.piece-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.piece-meta {
+  font-size: 0.82rem !important;
+  color: #9adbeb !important;
+}
+
+.piece-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
 .catalog {
   display: grid;
   gap: 1rem;
@@ -352,6 +564,12 @@ a {
 @media (min-width: 780px) {
   .catalog {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .catalog {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -366,13 +584,25 @@ a {
   animation: rise 0.7s ease both;
 }
 
-.product:nth-child(2) {
-  animation-delay: 0.06s;
-}
-
 .product:hover {
   border-color: rgba(46, 230, 255, 0.28);
   box-shadow: 0 0 0 1px rgba(46, 230, 255, 0.08), 0 0 28px rgba(46, 230, 255, 0.08);
+}
+
+.product.is-soon {
+  opacity: 0.92;
+}
+
+.product.is-soon:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.product-badge.soon {
+  color: #e8e8e8;
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .product-visual {

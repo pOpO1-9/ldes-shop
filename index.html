@@ -32,6 +32,7 @@
         <span>LDES</span>
       </a>
       <nav>
+        <a href="#gallery">Gallery</a>
         <a href="#packs">Packs</a>
         <a href="#custom">Custom</a>
         <a href="#faq">FAQ</a>
@@ -63,21 +64,39 @@
           nature in motion · calm in chaos
         </p>
         <div class="cta-row">
-          <a class="btn primary" href="#packs">Browse packs</a>
-          <a
-            class="btn ghost"
-            href="https://www.tiktok.com/@ldes.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Watch on TikTok</a
-          >
+          <a class="btn primary" href="#gallery">Enter gallery</a>
+          <a class="btn ghost" href="#packs">Browse packs</a>
         </div>
+      </section>
+
+      <section id="gallery" class="section gallery-section">
+        <div class="section-head">
+          <h2>Gallery</h2>
+          <p>
+            Walk the worlds. Buy the file now. On-chain editions come next —
+            ownership on the blockchain, same LDES art.
+          </p>
+        </div>
+        <div class="gallery-toolbar" id="gallery-filters">
+          <button type="button" class="filter is-active" data-filter="all">
+            All
+          </button>
+          <button type="button" class="filter" data-filter="live">Live</button>
+          <button type="button" class="filter" data-filter="soon">
+            Coming
+          </button>
+        </div>
+        <p class="nft-banner" id="nft-banner"></p>
+        <div class="gallery-grid" id="gallery"></div>
       </section>
 
       <section id="packs" class="section">
         <div class="section-head">
           <h2>Dream packs</h2>
-          <p>Post-ready loops and stills from the worlds. Instant download.</p>
+          <p>
+            Instant downloads — clips, stills, loops, bundles. Gallery pieces
+            often unlock through these packs.
+          </p>
         </div>
         <div class="catalog" id="catalog"></div>
       </section>
@@ -214,6 +233,15 @@
               Same world as @ldes.ai.
             </p>
           </details>
+          <details>
+            <summary>What about NFTs / blockchain?</summary>
+            <p>
+              The gallery is built for on-chain editions. Right now you buy the
+              <strong>file</strong> (instant download). Limited NFT mints come
+              next — same art, ownership on-chain. We’ll list mint links on each
+              piece when live.
+            </p>
+          </details>
         </div>
       </section>
     </main>
@@ -228,6 +256,24 @@
       </div>
       <p>Lab Dream Engine Studio · not real, but it feels like it is</p>
     </footer>
+
+    <dialog id="piece-lightbox" class="dialog piece-dialog">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">
+        ×
+      </button>
+      <div class="piece-layout">
+        <div class="piece-media">
+          <img id="lightbox-image" src="" alt="" />
+        </div>
+        <div class="piece-info">
+          <p class="piece-series" id="lightbox-series"></p>
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-blurb"></p>
+          <p class="piece-meta" id="lightbox-meta"></p>
+          <div class="piece-actions" id="lightbox-actions"></div>
+        </div>
+      </div>
+    </dialog>
 
     <dialog id="custom-ready" class="dialog">
       <form method="dialog" class="custom-ready-form">
@@ -248,10 +294,12 @@
 
     <dialog id="checkout-note" class="dialog">
       <form method="dialog">
-        <h3>Link unavailable</h3>
+        <h3>Not for sale yet</h3>
         <p>
-          This product link isn’t set yet. Check
-          <code>config.js</code> or try again in a moment.
+          This pack is on the way. Live packs check out on Gumroad right after
+          you pay — follow
+          <a href="https://www.tiktok.com/@ldes.ai" target="_blank" rel="noopener noreferrer">@ldes.ai</a>
+          for drops.
         </p>
         <button class="btn primary" value="ok">Got it</button>
       </form>
