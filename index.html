@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LDES — Lab Dream Engine Studio</title>
+    <meta
+      name="description"
+      content="not real, but it feels like it is. Dream clips and wallpapers from Lab Dream Engine Studio."
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="assets/avatar.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/avatar.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="void-glow"></div>
+      <div class="mist mist-a"></div>
+      <div class="mist mist-b"></div>
+    </div>
+
+    <header class="top">
+      <a class="mark" href="#top">
+        <img src="assets/avatar.png" alt="" width="28" height="28" />
+        <span>LDES</span>
+      </a>
+      <nav>
+        <a href="#packs">Packs</a>
+        <a href="#custom">Custom</a>
+        <a href="#faq">FAQ</a>
+        <a
+          href="https://www.tiktok.com/@ldes.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          >ldes.ai</a
+        >
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="planet-wrap">
+          <div class="planet-ring"></div>
+          <img
+            class="planet"
+            src="assets/avatar.png"
+            alt="LDES planet"
+            width="280"
+            height="280"
+          />
+        </div>
+        <h1>Lab Dream Engine Studio</h1>
+        <p class="handle">ldes.ai</p>
+        <p class="tagline">
+          not real, but it feels like it is<br />
+          nature in motion · calm in chaos
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#packs">Browse packs</a>
+          <a
+            class="btn ghost"
+            href="https://www.tiktok.com/@ldes.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Watch on TikTok</a
+          >
+        </div>
+      </section>
+
+      <section id="packs" class="section">
+        <div class="section-head">
+          <h2>Dream packs</h2>
+          <p>Post-ready loops and stills from the worlds. Instant download.</p>
+        </div>
+        <div class="catalog" id="catalog"></div>
+      </section>
+
+      <section id="custom" class="section">
+        <div class="custom-panel">
+          <div class="custom-visual">
+            <img
+              id="custom-cover"
+              src="assets/pack-custom.jpg"
+              alt="LDES Custom Dream"
+              loading="lazy"
+            />
+            <span class="product-badge">commission</span>
+          </div>
+          <div class="custom-body">
+            <h2>Custom dream</h2>
+            <p>
+              Send one line. Get a vertical clip or wallpaper set in the LDES
+              look.
+            </p>
+            <ul class="includes">
+              <li>1 scene from your prompt</li>
+              <li>Vertical clip or still set</li>
+              <li>1 revision included</li>
+            </ul>
+            <p class="price-line">
+              <span data-custom-price>$79</span> · delivered in days
+            </p>
+            <a class="btn primary" id="custom-buy" href="#">Request custom</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>Digital only. No shipping. Yours forever.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <strong>Choose</strong>
+            <span>Pick a clip or wallpaper pack.</span>
+          </li>
+          <li>
+            <strong>Checkout</strong>
+            <span>Pay securely, get your download link.</span>
+          </li>
+          <li>
+            <strong>Use</strong>
+            <span>Post it, set it, keep it.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="section-head">
+          <h2>FAQ</h2>
+          <p>Quick answers before you buy.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>What do I get?</summary>
+            <p>
+              A download link with the files listed on each pack — MP4s for
+              clips, high-res images for wallpapers.
+            </p>
+          </details>
+          <details>
+            <summary>Can I post these on TikTok / Reels?</summary>
+            <p>
+              Yes. Clip packs include social posting use. Don’t resell the raw
+              files as your own pack.
+            </p>
+          </details>
+          <details>
+            <summary>When do checkout links go live?</summary>
+            <p>
+              As soon as Gumroad (or Stripe) links are added in
+              <code>config.js</code>. Until then, custom requests can use email.
+            </p>
+          </details>
+          <details>
+            <summary>Is this AI-made?</summary>
+            <p>
+              Yes — crafted in the LDES look: surreal, calm, a little strange.
+              Same world as @ldes.ai.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-brand">
+        <img src="assets/avatar.png" alt="" width="36" height="36" />
+        <div>
+          <strong>LDES</strong>
+          <span>ldes.ai</span>
+        </div>
+      </div>
+      <p>Lab Dream Engine Studio · not real, but it feels like it is</p>
+    </footer>
+
+    <dialog id="checkout-note" class="dialog">
+      <form method="dialog">
+        <h3>Checkout coming next</h3>
+        <p>
+          Packs are listed. Add your Gumroad or Stripe link in
+          <code>config.js</code> to turn these buttons on. Custom can use email
+          if you set <code>contactEmail</code>.
+        </p>
+        <button class="btn primary" value="ok">Got it</button>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
