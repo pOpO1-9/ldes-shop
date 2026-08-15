@@ -12,10 +12,10 @@ window.LDES_CONFIG = {
    * Recommended first chain: Base (cheap) or Solana.
    */
   nft: {
-    enabled: false,
+    enabled: true,
     chainLabel: "Base",
     comingCopy:
-      "On-chain editions coming soon — limited mints with ownership on the blockchain. File download stays available now.",
+      "Collect on Zora (Base) — trade the piece on-chain. File packs still download instantly via Buy file.",
   },
 
   products: [
@@ -28,7 +28,7 @@ window.LDES_CONFIG = {
       description:
         "Five vertical loops from the lab — mist temples, pocket worlds, quiet surreal rooms. Post-ready.",
       includes: [
-        "5 × MP4 vertical clips (~15s)",
+        "5 × MP4 vertical clips (~5s)",
         "1080×1920, ready to post",
         "Commercial use for your socials",
       ],
@@ -58,8 +58,24 @@ window.LDES_CONFIG = {
       description:
         "Teacup villages, glass-bottle oceans, moonlit keyholes. Same LDES calm, new doors.",
       includes: [
-        "5 × MP4 vertical clips (~5–15s)",
-        "1080×1920, ready to post",
+        "5 × MP4 vertical clips (~5s)",
+        "720×1280, ready to post",
+        "Commercial use for your socials",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+    {
+      id: "dream-clips-03",
+      name: "Dream Clip Pack 03 — Night Harbor",
+      price: 29,
+      badge: "5 clips · Night harbor",
+      image: "assets/pack-clips.jpg",
+      description:
+        "Wet docks, fog ferries, cobble rain, breakwater light. Quiet harbor nights from the lab.",
+      includes: [
+        "5 × MP4 vertical clips (~5s)",
+        "720×1280, ready to post",
         "Commercial use for your socials",
       ],
       checkoutUrl: "",
@@ -90,8 +106,8 @@ window.LDES_CONFIG = {
       description:
         "Four seamless ambient loops for Stories, streams, and calm edits.",
       includes: [
-        "4 × seamless MP4 loops",
-        "1080×1920 vertical",
+        "4 × seamless MP4 loops (~5s)",
+        "720×1280 vertical",
         "Social + stream overlay use",
       ],
       checkoutUrl: "",
@@ -126,11 +142,13 @@ window.LDES_CONFIG = {
       series: "Wallpaper Pack 01",
       image: "assets/gallery/LDES_Wall_01_Mist_Harbor.jpg",
       blurb: "Boat bow into fog — green portal on the water.",
-      edition: "Open edition · file",
-      supply: "∞ file / NFT TBD",
+      edition: "Zora coin · $MIST",
+      supply: "0x23a7…04ef",
       priceFile: 12,
       buyPackId: "wallpaper-01",
-      mintUrl: "",
+      mintUrl:
+        "https://zora.co/coin/base:0x23a764686e5950fedf2d4715ea5e00a0d45304ef",
+      contract: "0x23a764686e5950fedf2d4715ea5e00a0d45304ef",
       status: "live",
     },
     {
