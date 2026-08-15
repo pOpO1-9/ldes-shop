@@ -96,8 +96,8 @@
           <div class="custom-body">
             <h2>Custom dream</h2>
             <p>
-              Send one line. Get a vertical clip or wallpaper set in the LDES
-              look.
+              Describe the scene you want. You’ll get one vertical clip or a
+              wallpaper set in the LDES look.
             </p>
             <ul class="includes">
               <li>1 scene from your prompt</li>
@@ -107,7 +107,53 @@
             <p class="price-line">
               <span data-custom-price>$79</span> · delivered in days
             </p>
-            <a class="btn primary" id="custom-buy" href="#">Request custom</a>
+
+            <form id="custom-form" class="custom-form" novalidate>
+              <label class="field">
+                <span>Your prompt <em>*</em></span>
+                <textarea
+                  id="custom-prompt"
+                  name="prompt"
+                  rows="4"
+                  required
+                  maxlength="800"
+                  placeholder="Example: a tiny village glowing inside a teacup at night, soft mist, calm, vertical shot…"
+                ></textarea>
+              </label>
+
+              <fieldset class="field format-field">
+                <legend>What do you want? <em>*</em></legend>
+                <label class="choice">
+                  <input type="radio" name="format" value="vertical clip" checked />
+                  Vertical clip (9:16)
+                </label>
+                <label class="choice">
+                  <input type="radio" name="format" value="wallpaper set" />
+                  Wallpaper set
+                </label>
+              </fieldset>
+
+              <label class="field">
+                <span>Your email <em>*</em></span>
+                <input
+                  id="custom-email"
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  placeholder="so we can deliver your dream"
+                />
+              </label>
+
+              <p class="form-hint">
+                On the next page, paste this into the order note so we get your
+                idea with the payment.
+              </p>
+
+              <button class="btn primary" type="submit" id="custom-buy">
+                Continue to checkout
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -182,6 +228,23 @@
       </div>
       <p>Lab Dream Engine Studio · not real, but it feels like it is</p>
     </footer>
+
+    <dialog id="custom-ready" class="dialog">
+      <form method="dialog" class="custom-ready-form">
+        <h3>Almost there</h3>
+        <p>
+          Your prompt is copied. On Gumroad, paste it into the
+          <strong>order note / message</strong> so we know what to make.
+        </p>
+        <pre id="custom-summary" class="prompt-box"></pre>
+        <div class="dialog-actions">
+          <button class="btn ghost" value="cancel" type="submit">Back</button>
+          <button class="btn primary" id="custom-open-checkout" value="ok" type="submit">
+            Open checkout
+          </button>
+        </div>
+      </form>
+    </dialog>
 
     <dialog id="checkout-note" class="dialog">
       <form method="dialog">

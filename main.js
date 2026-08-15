@@ -4,9 +4,14 @@
 
   const catalog = document.getElementById("catalog");
   const dialog = document.getElementById("checkout-note");
-  const customBuy = document.getElementById("custom-buy");
+  const customForm = document.getElementById("custom-form");
+  const customReady = document.getElementById("custom-ready");
+  const customSummary = document.getElementById("custom-summary");
+  const customOpenCheckout = document.getElementById("custom-open-checkout");
   const customPrice = document.querySelector("[data-custom-price]");
   const top = document.querySelector(".top");
+
+  let pendingCheckoutUrl = "";
 
   function money(n) {
     return config.currencySymbol + n;
@@ -16,19 +21,15 @@
     return !!(url && /^https?:\/\//i.test(url));
   }
 
-  function buy(url, fallbackMailto) {
+  function buy(url) {
     if (hasUrl(url)) {
       window.open(url, "_blank", "noopener,noreferrer");
-      return;
-    }
-    if (fallbackMailto && config.contactEmail) {
-      window.location.href = fallbackMailto;
       return;
     }
     if (dialog && typeof dialog.showModal === "function") {
       dialog.showModal();
     } else {
-      alert("Add your checkout link in config.js");
+      alert("Checkout link unavailable");
     }
   }
 
@@ -37,6 +38,27 @@
     return `<ul class="includes">${items
       .map((item) => `<li>${item}</li>`)
       .join("")}</ul>`;
+  }
+
+  function buildCustomNote(prompt, format, email) {
+    return [
+      "LDES Custom Dream request",
+      "",
+      "Prompt:",
+      prompt.trim(),
+      "",
+      "Format: " + format,
+      "Email: " + email.trim(),
+    ].join("\n");
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(function () {
+        return false;
+      });
+    }
+    return Promise.resolve(false);
   }
 
   if (catalog) {
@@ -56,7 +78,7 @@
           <p class="desc">${p.description}</p>
           ${includesList(p.includes)}
           <button class="btn primary small" type="button" data-checkout="${p.id}">
-            ${hasUrl(p.checkoutUrl) ? "Get pack" : "Get pack"}
+            Get pack
           </button>
         </div>
       </article>`
@@ -75,17 +97,47 @@
     customPrice.textContent = money(config.custom.price);
   }
 
-  if (customBuy) {
-    customBuy.addEventListener("click", (e) => {
+  if (customForm) {
+    customForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const subject = encodeURIComponent("LDES custom dream request");
-      const body = encodeURIComponent(
-        "Prompt / idea:\n\nFormat (clip or wallpaper):\n\n"
-      );
-      const mailto = config.contactEmail
-        ? `mailto:${config.contactEmail}?subject=${subject}&body=${body}`
-        : "";
-      buy(config.custom.checkoutUrl, mailto);
+
+      const promptEl = document.getElementById("custom-prompt");
+      const emailEl = document.getElementById("custom-email");
+      const formatEl = customForm.querySelector('input[name="format"]:checked');
+
+      const prompt = (promptEl && promptEl.value) || "";
+      const email = (emailEl && emailEl.value) || "";
+      const format = (formatEl && formatEl.value) || "vertical clip";
+
+      if (!prompt.trim()) {
+        promptEl.focus();
+        promptEl.reportValidity();
+        return;
+      }
+      if (!email.trim() || !emailEl.checkValidity()) {
+        emailEl.focus();
+        emailEl.reportValidity();
+        return;
+      }
+
+      const note = buildCustomNote(prompt, format, email);
+      pendingCheckoutUrl = config.custom.checkoutUrl || "";
+
+      if (customSummary) customSummary.textContent = note;
+
+      copyText(note).finally(function () {
+        if (customReady && typeof customReady.showModal === "function") {
+          customReady.showModal();
+        } else {
+          buy(pendingCheckoutUrl);
+        }
+      });
+    });
+  }
+
+  if (customOpenCheckout) {
+    customOpenCheckout.addEventListener("click", () => {
+      buy(pendingCheckoutUrl);
     });
   }
 
