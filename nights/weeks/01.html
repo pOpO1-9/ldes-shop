@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Most Nights — Week 01</title>
+    <meta name="description" content="Five dinners, one grocery list. Week 01." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .card {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: calc(var(--header-h) + 2rem) 0 3rem;
+      }
+      .card h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 3.2rem);
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      .sub {
+        margin: 0.5rem 0 1.5rem;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      h2 {
+        margin: 2rem 0 0.7rem;
+        font-size: 1.35rem;
+        font-weight: 500;
+      }
+      .grocery {
+        columns: 1;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .grocery li {
+        break-inside: avoid;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid var(--rule);
+        font-size: 0.98rem;
+      }
+      .grocery b {
+        display: block;
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stamp);
+        font-weight: 500;
+        margin-bottom: 0.15rem;
+      }
+      .meal {
+        padding: 1rem 0 1.15rem;
+        border-top: 1px solid var(--rule);
+      }
+      .meal h3 {
+        margin: 0 0 0.2rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+      .meal .when {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--stamp);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .meal p {
+        margin: 0.45rem 0 0;
+        color: var(--ink);
+      }
+      .meal .how {
+        color: var(--muted);
+      }
+      .note {
+        margin-top: 2rem;
+        padding: 1rem 0 0;
+        border-top: 1px solid var(--ink);
+        color: var(--muted);
+      }
+      @media (min-width: 700px) {
+        .grocery {
+          columns: 2;
+        }
+      }
+      @media print {
+        .top,
+        .foot,
+        .no-print {
+          display: none !important;
+        }
+        .card {
+          padding: 0;
+        }
+        body {
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top no-print">
+      <a class="mark" href="../">Most Nights</a>
+      <nav>
+        <a href="../">Shop</a>
+        <a href="#" onclick="window.print(); return false;">Print / PDF</a>
+      </nav>
+    </header>
+
+    <article class="hero card">
+      <p class="kicker">Week 01 · 18–24 August</p>
+      <h1>Five dinners, one bag.</h1>
+      <p class="sub">Feeds 2 · 25–40 min a night · leftovers on Wednesday</p>
+      <p class="lede">
+        Buy the list once. Salt food like an adult. Wednesday is not a new
+        animal — it is Monday’s chicken in a pan with rice and an egg.
+      </p>
+
+      <h2>The bag</h2>
+      <ul class="grocery">
+        <li>
+          <b>Meat / tins</b>
+          Chicken thighs, bone-in if you can — 800 g<br />
+          Tuna in olive oil — 1 tin (160 g)
+        </li>
+        <li>
+          <b>Fridge</b>
+          Eggs — 6<br />
+          Plain yogurt — 400 g<br />
+          Salad greens — 1 bag<br />
+          Lemon — 2<br />
+          Butter — a small pack if you don’t have it
+        </li>
+        <li>
+          <b>Veg</b>
+          Potatoes — 1 kg<br />
+          Carrots — 500 g<br />
+          Yellow onions — 3<br />
+          Garlic — 1 head<br />
+          Frozen peas — 1 small bag
+        </li>
+        <li>
+          <b>Dry</b>
+          Spaghetti or any short pasta — 500 g<br />
+          Rice — you need 250 g cooked worth (a mug)<br />
+          Red lentils — 250 g<br />
+          Canned chopped tomatoes — 1 × 400 g<br />
+          Bread — 1 loaf, whatever is decent
+        </li>
+        <li>
+          <b>Assume you have</b>
+          Olive oil, salt, black pepper, paprika.<br />
+          If not: buy those once. That is the pantry card later.
+        </li>
+      </ul>
+
+      <h2>The nights</h2>
+
+      <div class="meal">
+        <div class="when">Monday · 40 min · oven 210°C</div>
+        <h3>Tray chicken</h3>
+        <p>
+          Thighs, potatoes in chunks, carrots in batons, two onions in wedges,
+          garlic cloves in their skins. Oil, salt, pepper, paprika. Same tray.
+        </p>
+        <p class="how">
+          35–40 minutes, until the potatoes give. Eat two thighs tonight with
+          half the veg. Cool the rest of the meat, pick it off the bone, fridge.
+          That is Wednesday.
+        </p>
+      </div>
+
+      <div class="meal">
+        <div class="when">Tuesday · 20 min</div>
+        <h3>Tuna tomato pasta</h3>
+        <p>
+          Onion and garlic in oil until soft. Tomatoes, salt, a pinch of
+          paprika. Simmer while the pasta cooks. Tuna and a handful of peas in
+          at the end. Lemon.
+        </p>
+        <p class="how">Pasta water in the pan if it looks tight. Not a cream sauce. Eat.</p>
+      </div>
+
+      <div class="meal">
+        <div class="when">Wednesday · 20 min</div>
+        <h3>Chicken fried rice</h3>
+        <p>
+          Cold leftover chicken, chopped. Day-old rice if you made extra; if
+          not, cook rice first and spread it on a plate to steam off.
+        </p>
+        <p class="how">
+          Hot pan, oil, leftover roast veg if any, rice, chicken, peas. Hole in
+          the middle: two eggs scrambled in. Soy if you have it; salt and lemon
+          if you don’t.
+        </p>
+      </div>
+
+      <div class="meal">
+        <div class="when">Thursday · 30 min</div>
+        <h3>Red lentil soup</h3>
+        <p>
+          Onion, carrot, garlic. Lentils, water to cover by a couple of
+          centimetres, salt. Simmer until the lentils fall apart. Lemon in the
+          bowl, yogurt on top, bread on the side.
+        </p>
+        <p class="how">If it is too thick, more water. If it is bland, more salt and lemon. That is the whole technique.</p>
+      </div>
+
+      <div class="meal">
+        <div class="when">Friday · 15 min</div>
+        <h3>Omelette night</h3>
+        <p>
+          Three eggs for two people if you are tired, four if you are not.
+          Remaining salad. Toast from the loaf. Any roast veg still hiding.
+        </p>
+        <p class="how">
+          Butter in the pan. Don’t fuss the eggs. This is the point of a week
+          card: Friday should be almost nothing.
+        </p>
+      </div>
+
+      <p class="note">
+        Most Nights · Week 01. Print this page (A4). Put it on the fridge.
+        Next week is a different bag — same idea.
+      </p>
+    </article>
+
+    <footer class="foot no-print">
+      <div>
+        <strong>Most Nights</strong>
+        <span><a href="../">Back to the shop</a></span>
+      </div>
+      <p>Print → Save as PDF when you put this on Gumroad.</p>
+    </footer>
+  </body>
+</html>
