@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Most Nights — five dinners, one list</title>
+    <meta
+      name="description"
+      content="A weekly dinner card for people who already know how to cook. Five nights. One grocery run. No recipes from a blog."
+    />
+    <meta name="theme-color" content="#f2eadb" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231b1914' width='32' height='32'/><text x='16' y='22' text-anchor='middle' font-size='11' fill='%23f2eadb' font-family='Georgia'>MN</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#this-week">Skip to this week</a>
+
+    <header class="top">
+      <a class="mark" href="#top">Most Nights</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav">
+        <a href="#this-week">This week</a>
+        <a href="#buy">Buy</a>
+        <a href="#why">Why</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="kicker">A shop for dinner · not a content studio</p>
+        <h1>What’s for dinner<br /><em>most nights.</em></h1>
+        <p class="lede">
+          Everyone eats. Most people do not want a cookbook, a 40-step reel, or
+          another bag of takeout. They want five dinners and one list.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="weeks/01.html">See Week 01 — free</a>
+          <a class="btn ghost" href="#buy">€5 a week when checkout is live</a>
+        </div>
+      </section>
+
+      <section id="this-week" class="section">
+        <div class="section-head">
+          <p class="index">This week</p>
+          <h2 id="week-label">Week 01</h2>
+          <p class="lede" id="week-meta"></p>
+        </div>
+        <ol class="dinners" id="dinner-list"></ol>
+        <p class="after">
+          Full method, quantities, and the grocery list are on the card.
+          <a href="weeks/01.html">Open Week 01</a>
+        </p>
+      </section>
+
+      <section id="why" class="section">
+        <div class="section-head">
+          <p class="index">The product</p>
+          <h2>One bag. Five nights.</h2>
+        </div>
+        <ul class="points">
+          <li>
+            <strong>It is a need</strong>
+            <span>Food is not a wallpaper. You already decide this 5–7 times a week. The shop sells the decision, not a personality.</span>
+          </li>
+          <li>
+            <strong>It repeats</strong>
+            <span>A clip pack is bought once. A week card is bought again on Sunday. That is how a small shop becomes income.</span>
+          </li>
+          <li>
+            <strong>It stays small</strong>
+            <span>No warehouse. No mint. No 40 SKUs. A PDF on Gumroad. You can write next week in an evening.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="buy" class="section">
+        <div class="section-head">
+          <p class="index">Shop</p>
+          <h2>Three things. That’s the catalog.</h2>
+        </div>
+        <div class="catalog" id="catalog"></div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="section-head">
+          <p class="index">Questions</p>
+          <h2>Plain answers</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>What do I actually get?</summary>
+            <p>
+              A one-page week card: five dinners, how to cook them, and one
+              grocery list grouped the way a supermarket is laid out. Print it
+              or keep it on your phone.
+            </p>
+          </details>
+          <details>
+            <summary>Is this recipes?</summary>
+            <p>
+              Barely. If you can boil pasta and salt a chicken thigh, you can
+              run the card. No blogs, no “chef’s kiss,” no 12 ingredients you
+              will never buy again.
+            </p>
+          </details>
+          <details>
+            <summary>For how many people?</summary>
+            <p>
+              Written for two. Scale the meat and pasta if you are more. Week 01
+              uses leftovers on Wednesday so you do not cook a fifth animal.
+            </p>
+          </details>
+          <details>
+            <summary>Why isn’t checkout live?</summary>
+            <p>
+              Week 01 is up so you can see the product. “This week” (€5) and
+              “four weeks” (€16) go on Gumroad next — until then, print the
+              card or email
+              <a href="mailto:khourypaul19@gmail.com">khourypaul19@gmail.com</a>.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div>
+        <strong>Most Nights</strong>
+        <span>Five dinners. One list.</span>
+      </div>
+      <p>A new shop. Not Lab Dream Engine Studio.</p>
+    </footer>
+
+    <dialog id="checkout-note" class="dialog">
+      <form method="dialog">
+        <h3>Checkout next</h3>
+        <p>
+          Gumroad listings are not up yet. Week 01 is readable now. Email
+          <a href="mailto:khourypaul19@gmail.com">khourypaul19@gmail.com</a>
+          if you want the four-week pack the hour it drops.
+        </p>
+        <button class="btn primary" value="ok">Got it</button>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="shop.js"></script>
+  </body>
+</html>
