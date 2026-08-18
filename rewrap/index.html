@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rewrap — padel overgrips</title>
+    <meta
+      name="description"
+      content="Twelve overgrips for padel. The handle goes slick. You wrap a new one. That is the shop."
+    />
+    <meta name="theme-color" content="#071018" />
+    <link rel="icon" href="assets/mark.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <p class="tape">Padel · 12 wraps · EU postage in the price</p>
+    <header class="top">
+      <a class="word" href="index.html">Rewrap</a>
+      <nav>
+        <a href="#why">Why this</a>
+        <a href="ship.html">Shipping</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+      <button type="button" data-open-bag>Bag <span data-bag-count>0</span></button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shot">
+          <img id="stage" src="assets/court.jpg" alt="Night padel court" width="1536" height="1024" />
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+        <div class="buy">
+          <p class="tag">One SKU</p>
+          <h1 id="name">The sleeve</h1>
+          <p class="eur" id="price">€16</p>
+          <p id="blurb"></p>
+          <div class="row">
+            <div class="step">
+              <button type="button" data-step="-1" aria-label="Fewer">−</button>
+              <input id="qty" type="number" min="1" max="5" value="1" />
+              <button type="button" data-step="1" aria-label="More">+</button>
+            </div>
+            <button class="btn" type="button" id="add">Add to bag</button>
+          </div>
+          <p class="fine">A few sessions per wrap. Then you throw it and take the next one.</p>
+          <ul id="includes"></ul>
+          <dl id="specs"></dl>
+        </div>
+      </section>
+
+      <section id="why" class="why">
+        <h2>Why people buy this</h2>
+        <ol>
+          <li>
+            <strong>The handle is already dead.</strong>
+            Overgrips are not décor. After a hot set they are slime. Players buy a new wrap the way runners buy gels — because tonight’s booking is in an hour.
+          </li>
+          <li>
+            <strong>The club shop sells them one at a time.</strong>
+            A twelve-pack in the boot is cheaper than panic-buying at the desk. That is the job.
+          </li>
+          <li>
+            <strong>They buy again.</strong>
+            If you play twice a week, a sleeve is a month, not a souvenir. A lamp is a one-time scroll. This is not.
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <strong>Rewrap</strong>
+      <p>
+        <a href="ship.html">Shipping & returns</a>
+        ·
+        <a href="mailto:khourypaul19@gmail.com">khourypaul19@gmail.com</a>
+      </p>
+    </footer>
+
+    <script src="js/catalog.js"></script>
+    <script src="js/bag.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

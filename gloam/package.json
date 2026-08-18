@@ -1,9 +1,0 @@
-{
-  "name": "gloam",
-  "private": true,
-  "version": "0.1.0",
-  "description": "Gloam — a one-product store for a USB-C sunset lamp. Standalone dropshipping storefront.",
-  "scripts": {
-    "start": "python3 -m http.server 4173"
-  }
-}
