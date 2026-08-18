@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LDES — Lab Dream Engine Studio</title>
+    <title>Lab Dream Engine Studio — LDES</title>
     <meta
       name="description"
-      content="not real, but it feels like it is. Dream clips and wallpapers from Lab Dream Engine Studio."
+      content="not real, but it feels like it is. Dream clips, stills, and editions from Lab Dream Engine Studio."
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#050505" />
     <link rel="icon" href="assets/avatar.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/avatar.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -24,84 +24,135 @@
       <div class="void-glow"></div>
       <div class="mist mist-a"></div>
       <div class="mist mist-b"></div>
+      <div class="grain"></div>
     </div>
+
+    <a class="skip" href="#works">Skip to works</a>
 
     <header class="top">
       <a class="mark" href="#top">
         <img src="assets/avatar.png" alt="" width="28" height="28" />
         <span>LDES</span>
       </a>
-      <nav>
-        <a href="#gallery">Gallery</a>
-        <a href="#packs">Packs</a>
-        <a href="#custom">Custom</a>
-        <a href="#faq">FAQ</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav">
+        <a href="#works">Works</a>
+        <a href="#mint">Holders</a>
+        <a href="#editions">Editions</a>
+        <a href="#commission">Commission</a>
+        <a href="#studio">Studio</a>
         <a
+          class="nav-ext"
           href="https://www.tiktok.com/@ldes.ai"
           target="_blank"
           rel="noopener noreferrer"
-          >ldes.ai</a
+          >TikTok</a
         >
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero">
-        <div class="planet-wrap">
-          <div class="planet-ring"></div>
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-stage">
           <img
-            class="planet"
-            src="assets/avatar.png"
-            alt="LDES planet"
-            width="280"
-            height="280"
+            class="hero-art"
+            src="assets/gallery/LDES_Wall_01_Mist_Harbor.jpg"
+            alt="Mist Harbor — a boat bow moving into fog, a green portal on the water"
+            width="1080"
+            height="1920"
+            fetchpriority="high"
           />
+          <div class="hero-veil"></div>
         </div>
-        <h1>Lab Dream Engine Studio</h1>
-        <p class="handle">ldes.ai</p>
-        <p class="tagline">
-          not real, but it feels like it is<br />
-          nature in motion · calm in chaos
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="#gallery">Enter gallery</a>
-          <a class="btn ghost" href="#packs">Browse packs</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Lab Dream Engine Studio</p>
+          <h1>not real,<br /><em>but it feels like it is.</em></h1>
+          <p class="tagline">
+            Short films and stills from a quiet lab.<br />
+            Nature in motion. Calm in chaos.
+          </p>
+          <p class="now-showing">
+            Now showing <span>Mist Harbor</span>
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#works">Enter the gallery</a>
+            <a class="btn ghost" href="#mint">Hold on Zora</a>
+          </div>
         </div>
       </section>
 
-      <section id="gallery" class="section gallery-section">
-        <div class="section-head">
-          <h2>Gallery</h2>
-          <p>
-            Walk the worlds. Buy the file now. On-chain editions come next —
-            ownership on the blockchain, same LDES art.
+      <section id="works" class="section works-section">
+        <div class="section-head split">
+          <div>
+            <p class="index">01 — Works</p>
+            <h2>Selected worlds</h2>
+          </div>
+          <p class="lede">
+            Walk the rooms. Buy the file now. Four pieces are live to mint on
+            Zora (Base) if you want to hold the coin.
           </p>
         </div>
-        <div class="gallery-toolbar" id="gallery-filters">
-          <button type="button" class="filter is-active" data-filter="all">
+        <div class="toolbar-row" id="mint">
+          <div class="gallery-toolbar" id="gallery-filters">
+            <button type="button" class="filter is-active" data-filter="all">
+              All
+            </button>
+            <button type="button" class="filter" data-filter="mint">
+              Mint
+            </button>
+            <button type="button" class="filter" data-filter="live">Files</button>
+            <button type="button" class="filter" data-filter="soon">
+              Coming
+            </button>
+          </div>
+          <p class="nft-banner" id="nft-banner"></p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </section>
+
+      <section id="editions" class="section">
+        <div class="section-head split">
+          <div>
+            <p class="index">02 — Editions</p>
+            <h2>Dream packs</h2>
+          </div>
+          <p class="lede">
+            Instant downloads — clips, stills, loops, bundles. Gallery pieces
+            often unlock through these collections.
+          </p>
+        </div>
+        <div class="gallery-toolbar" id="edition-filters">
+          <button type="button" class="filter is-active" data-kind="all">
             All
           </button>
-          <button type="button" class="filter" data-filter="live">Live</button>
-          <button type="button" class="filter" data-filter="soon">
-            Coming
-          </button>
-        </div>
-        <p class="nft-banner" id="nft-banner"></p>
-        <div class="gallery-grid" id="gallery"></div>
-      </section>
-
-      <section id="packs" class="section">
-        <div class="section-head">
-          <h2>Dream packs</h2>
-          <p>
-            Instant downloads — clips, stills, loops, bundles. Gallery pieces
-            often unlock through these packs.
-          </p>
+          <button type="button" class="filter" data-kind="clips">Clips</button>
+          <button type="button" class="filter" data-kind="stills">Stills</button>
+          <button type="button" class="filter" data-kind="loops">Loops</button>
+          <button type="button" class="filter" data-kind="bundle">Bundles</button>
         </div>
         <div class="catalog" id="catalog"></div>
       </section>
 
-      <section id="custom" class="section">
+      <section id="commission" class="section">
+        <div class="section-head split">
+          <div>
+            <p class="index">03 — Commission</p>
+            <h2>A custom dream</h2>
+          </div>
+          <p class="lede">
+            Describe the scene. You’ll receive one vertical clip or a wallpaper
+            set in the LDES look — delivered in days.
+          </p>
+        </div>
         <div class="custom-panel">
           <div class="custom-visual">
             <img
@@ -113,19 +164,15 @@
             <span class="product-badge">commission</span>
           </div>
           <div class="custom-body">
-            <h2>Custom dream</h2>
-            <p>
-              Describe the scene you want. You’ll get one vertical clip or a
-              wallpaper set in the LDES look.
+            <p class="price-line">
+              <span data-custom-price>€79</span>
+              <span class="price-note">one scene · one revision</span>
             </p>
             <ul class="includes">
               <li>1 scene from your prompt</li>
               <li>Vertical clip or still set</li>
               <li>1 revision included</li>
             </ul>
-            <p class="price-line">
-              <span data-custom-price>$79</span> · delivered in days
-            </p>
 
             <form id="custom-form" class="custom-form" novalidate>
               <label class="field">
@@ -177,84 +224,107 @@
         </div>
       </section>
 
-      <section class="section how">
-        <div class="section-head">
-          <h2>How it works</h2>
-          <p>Digital only. No shipping. Yours forever.</p>
+      <section id="studio" class="section studio">
+        <div class="section-head split">
+          <div>
+            <p class="index">04 — Studio</p>
+            <h2>A quiet lab</h2>
+          </div>
+          <p class="lede manifesto">
+            Fog on water. Towns in teacups. Rooms that remember rain. We make
+            short films and stills — then keep only what feels like LDES: calm,
+            strange, and a little unreal.
+          </p>
         </div>
+
         <ol class="steps">
           <li>
+            <span class="step-num">01</span>
             <strong>Choose</strong>
-            <span>Pick a clip or wallpaper pack.</span>
+            <span>A single work, or a full edition of clips and stills.</span>
           </li>
           <li>
+            <span class="step-num">02</span>
             <strong>Checkout</strong>
-            <span>Pay securely, get your download link.</span>
+            <span>Pay securely. Files arrive instantly — digital only, yours forever.</span>
           </li>
           <li>
-            <strong>Use</strong>
-            <span>Post it, set it, keep it.</span>
+            <span class="step-num">03</span>
+            <strong>Live with it</strong>
+            <span>Post it, set it as a world on your screen, keep it.</span>
           </li>
         </ol>
-      </section>
 
-      <section id="faq" class="section faq">
-        <div class="section-head">
-          <h2>FAQ</h2>
-          <p>Quick answers before you buy.</p>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>What do I get?</summary>
-            <p>
-              A download link with the files listed on each pack — MP4s for
-              clips, high-res images for wallpapers.
-            </p>
-          </details>
-          <details>
-            <summary>Can I post these on TikTok / Reels?</summary>
-            <p>
-              Yes. Clip packs include social posting use. Don’t resell the raw
-              files as your own pack.
-            </p>
-          </details>
-          <details>
-            <summary>When do I get my files?</summary>
-            <p>
-              Right after checkout on Gumroad — you’ll get an email with the
-              download link for packs. Custom dreams are delivered after you
-              send your prompt.
-            </p>
-          </details>
-          <details>
-            <summary>Is this AI-made?</summary>
-            <p>
-              Yes — crafted in the LDES look: surreal, calm, a little strange.
-              Same world as @ldes.ai.
-            </p>
-          </details>
-          <details>
-            <summary>What about NFTs / blockchain?</summary>
-            <p>
-              The gallery is built for on-chain editions. Right now you buy the
-              <strong>file</strong> (instant download). Limited NFT mints come
-              next — same art, ownership on-chain. We’ll list mint links on each
-              piece when live.
-            </p>
-          </details>
+        <div class="faq">
+          <h3>Questions</h3>
+          <div class="faq-list">
+            <details>
+              <summary>What do I get?</summary>
+              <p>
+                A download link with the files listed on each edition — MP4s for
+                clips, high-res images for stills.
+              </p>
+            </details>
+            <details>
+              <summary>Can I post these on TikTok / Reels?</summary>
+              <p>
+                Yes. Clip packs include social posting use. Don’t resell the raw
+                files as your own pack.
+              </p>
+            </details>
+            <details>
+              <summary>When do I get my files?</summary>
+              <p>
+                Right after checkout on Gumroad — you’ll get an email with the
+                download link for packs. Custom dreams are delivered after you
+                send your prompt.
+              </p>
+            </details>
+            <details>
+              <summary>Is this AI-made?</summary>
+              <p>
+                Made with AI, guided by a small team. We keep only what feels
+                like LDES — calm, strange, and a little unreal.
+              </p>
+            </details>
+            <details>
+              <summary>What about NFTs / blockchain?</summary>
+              <p>
+                Open the <strong>Mint</strong> tab (or Holders in the menu). Four
+                pieces are live on Zora / Base right now: Mist Harbor ($MIST),
+                Fog Train ($FOG), Library Letters ($LIBRARY), Mountain Keyhole
+                ($KEYHOLE). You can collect the coin on-chain. The file pack is
+                a separate instant download.
+              </p>
+            </details>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="foot">
-      <div class="foot-brand">
-        <img src="assets/avatar.png" alt="" width="36" height="36" />
-        <div>
-          <strong>LDES</strong>
-          <span>ldes.ai</span>
+      <div class="foot-top">
+        <div class="foot-brand">
+          <img src="assets/avatar.png" alt="" width="40" height="40" />
+          <div>
+            <strong>Lab Dream Engine Studio</strong>
+            <span>not real, but it feels like it is</span>
+          </div>
+        </div>
+        <div class="foot-links">
+          <a href="#works">Works</a>
+          <a href="#editions">Editions</a>
+          <a href="#commission">Commission</a>
+          <a href="#studio">Studio</a>
+          <a
+            href="https://www.tiktok.com/@ldes.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            >TikTok</a
+          >
         </div>
       </div>
-      <p>Lab Dream Engine Studio · not real, but it feels like it is</p>
+      <p class="foot-copy">© 2026 LDES · ldes.ai</p>
     </footer>
 
     <dialog id="piece-lightbox" class="dialog piece-dialog">
@@ -296,7 +366,7 @@
       <form method="dialog">
         <h3>Not for sale yet</h3>
         <p>
-          This pack is on the way. Live packs check out on Gumroad right after
+          This edition is on the way. Live packs check out on Gumroad right after
           you pay — follow
           <a href="https://www.tiktok.com/@ldes.ai" target="_blank" rel="noopener noreferrer">@ldes.ai</a>
           for drops.

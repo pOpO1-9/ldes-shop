@@ -1,9 +1,11 @@
 /* LDES shop — packs, gallery editions, NFT hooks */
 
 window.LDES_CONFIG = {
-  currencySymbol: "$",
+  currency: "EUR",
+  currencySymbol: "€",
+  usdPerEur: 1.16,
   tiktok: "https://www.tiktok.com/@ldes.ai",
-  contactEmail: "",
+  contactEmail: "khourypaul19@gmail.com",
 
   /**
    * NFT / blockchain — Phase 2
@@ -16,12 +18,14 @@ window.LDES_CONFIG = {
     chainLabel: "Base",
     comingCopy:
       "Collect on Zora (Base) — trade the piece on-chain. File packs still download instantly via Buy file.",
+    profileUrl: "https://zora.co/@ldes_ai",
   },
 
   products: [
     {
       id: "dream-clips-01",
       name: "Dream Clip Pack 01",
+      kind: "clips",
       price: 29,
       badge: "5 clips · 9:16",
       image: "assets/pack-clips.jpg",
@@ -37,6 +41,7 @@ window.LDES_CONFIG = {
     {
       id: "wallpaper-01",
       name: "Wallpaper Pack 01",
+      kind: "stills",
       price: 12,
       badge: "8 stills",
       image: "assets/pack-walls.jpg",
@@ -52,25 +57,26 @@ window.LDES_CONFIG = {
     {
       id: "dream-clips-02",
       name: "Dream Clip Pack 02 — Pocket Worlds",
+      kind: "clips",
       price: 29,
       badge: "5 clips · Pocket worlds",
       image: "assets/pack-clips-02.jpg",
       description:
         "Teacup villages, glass-bottle oceans, moonlit keyholes. Same LDES calm, new doors.",
       includes: [
-        "5 × MP4 vertical clips (~5s)",
+        "5 × MP4 vertical clips (~5–6s)",
         "720×1280, ready to post",
         "Commercial use for your socials",
       ],
-      checkoutUrl: "",
-      status: "soon",
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_02",
     },
     {
       id: "dream-clips-03",
       name: "Dream Clip Pack 03 — Night Harbor",
+      kind: "clips",
       price: 29,
       badge: "5 clips · Night harbor",
-      image: "assets/pack-clips.jpg",
+      image: "assets/pack-clips-03.jpg",
       description:
         "Wet docks, fog ferries, cobble rain, breakwater light. Quiet harbor nights from the lab.",
       includes: [
@@ -78,28 +84,28 @@ window.LDES_CONFIG = {
         "720×1280, ready to post",
         "Commercial use for your socials",
       ],
-      checkoutUrl: "",
-      status: "soon",
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_03",
     },
     {
       id: "wallpaper-02",
       name: "Wallpaper Pack 02",
+      kind: "stills",
       price: 12,
       badge: "8 stills · Deep quiet",
       image: "assets/pack-walls-02.jpg",
       description:
-        "Eight fresh lockscreens — rain courtyards, silent libraries, soft neon fog.",
+        "Eight lockscreens from pocket worlds and night harbor — teacup village, bottle ocean, cobble rain.",
       includes: [
         "8 × high-res stills",
         "Phone + desktop sizes",
         "Personal use on your devices",
       ],
-      checkoutUrl: "",
-      status: "soon",
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_W2",
     },
     {
       id: "seamless-loops-01",
       name: "Seamless Loop Pack 01",
+      kind: "loops",
       price: 24,
       badge: "4 loops · ambient",
       image: "assets/pack-loops.jpg",
@@ -110,14 +116,14 @@ window.LDES_CONFIG = {
         "720×1280 vertical",
         "Social + stream overlay use",
       ],
-      checkoutUrl: "",
-      status: "soon",
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_Loop",
     },
     {
       id: "creator-bundle-01",
       name: "Creator Bundle 01",
+      kind: "bundle",
       price: 35,
-      badge: "clips + walls · save $6",
+      badge: "clips + walls · save €6",
       image: "assets/pack-bundle.jpg",
       description:
         "Dream Clip Pack 01 + Wallpaper Pack 01. Best starter set.",
@@ -126,8 +132,7 @@ window.LDES_CONFIG = {
         "All 8 wallpapers from Pack 01",
         "One download, both packs",
       ],
-      checkoutUrl: "",
-      status: "soon",
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_Bundle",
     },
   ],
 
@@ -252,7 +257,7 @@ window.LDES_CONFIG = {
       id: "ed-teacup",
       title: "Teacup Village",
       series: "Dream Clip Pack 02",
-      image: "assets/pack-clips-02.jpg",
+      image: "assets/gallery/LDES_Clip_01_Teacup_Village.jpg",
       blurb: "A glowing town sealed in porcelain — Pack 02.",
       edition: "Limited mint soon",
       supply: "NFT 1/25 planned",
@@ -265,7 +270,7 @@ window.LDES_CONFIG = {
       id: "ed-bottle",
       title: "Bottle Ocean",
       series: "Dream Clip Pack 02",
-      image: "assets/pack-walls-02.jpg",
+      image: "assets/gallery/LDES_Clip_02_Bottle_Ocean.jpg",
       blurb: "Storm sea corked on a rainy sill.",
       edition: "Limited mint soon",
       supply: "NFT 1/25 planned",
