@@ -3,333 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gloam — the lamp</title>
+    <title>Gloam — sunset lamp</title>
     <meta
       name="description"
-      content="A small lamp that puts dusk on the wall. One product. Ships to your door. We don’t keep a warehouse."
+      content="Sunset lamp. USB-C. A gold circle on the wall. One product, shipped to your door."
     />
-    <meta name="theme-color" content="#14110f" />
+    <meta name="theme-color" content="#f4efe8" />
     <link rel="icon" href="assets/gloam-mark.jpg" type="image/jpeg" />
     <link rel="apple-touch-icon" href="assets/gloam-mark.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/store.css" />
   </head>
   <body>
-    <a class="skip" href="#buy">Skip to buy</a>
+    <p class="ribbon">EU shipping included · 7–14 days · no warehouse</p>
 
-    <header class="top">
-      <a class="mark" href="#top">
-        <img src="assets/gloam-mark.jpg" alt="" width="28" height="28" />
-        <span>Gloam</span>
-      </a>
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        aria-label="Open menu"
-      >
-        <span></span>
-        <span></span>
-      </button>
-      <nav id="site-nav">
-        <a href="#buy">The lamp</a>
-        <a href="#ships">How it ships</a>
-        <a href="#faq">FAQ</a>
-        <a class="nav-buy" href="#checkout">Order</a>
+    <header class="bar">
+      <a class="logo" href="index.html">Gloam</a>
+      <nav>
+        <a href="#product">Lamp</a>
+        <a href="shipping.html">Shipping</a>
+        <a href="checkout.html">Checkout</a>
       </nav>
+      <button
+        class="bag-btn"
+        type="button"
+        data-open-bag
+        aria-expanded="false"
+        aria-controls="bag"
+      >
+        Bag <span data-cart-count>0</span>
+      </button>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-label="The lamp">
-        <div class="hero-stage">
+    <main>
+      <section id="product" class="split">
+        <div class="media">
           <img
-            class="hero-art"
+            id="stage"
             src="assets/gloam-hero.jpg"
-            alt="A small black lamp projecting a gold dusk circle on a living-room wall"
+            alt="Lamp projecting a gold circle on a living-room wall"
             width="1536"
             height="1024"
-            fetchpriority="high"
           />
-          <div class="hero-veil"></div>
+          <div class="thumbs" id="thumbs"></div>
         </div>
-        <div class="hero-copy">
-          <p class="kicker">One product · dropshipped</p>
-          <h1>Dusk,<br /><em>on the wall.</em></h1>
-          <p class="lede">
-            A lamp the size of a mug. Plug it in. Tilt the head. The room goes
-            gold. We don’t stock it — a warehouse ships it to your door.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#buy">See the lamp</a>
-            <a class="btn ghost" href="#checkout">
-              Order · <span data-price>€39</span>
-            </a>
+
+        <div class="info">
+          <p class="eyebrow">One product</p>
+          <h1 id="product-name">Sunset lamp</h1>
+          <p class="price" id="product-price">€39</p>
+          <p class="blurb" id="product-blurb"></p>
+
+          <div class="atc">
+            <div class="stepper" aria-label="Quantity">
+              <button type="button" data-step="-1" aria-label="Fewer">−</button>
+              <input id="qty" type="number" min="1" max="5" value="1" />
+              <button type="button" data-step="1" aria-label="More">+</button>
+            </div>
+            <button class="btn solid" type="button" id="add">Add to bag</button>
           </div>
+          <p id="toast" class="toast" hidden>In your bag.</p>
+          <p class="hint">Free shipping in the EU. USB-C. Tilting head.</p>
+
+          <ul class="includes" id="includes"></ul>
+          <dl class="specs" id="specs"></dl>
         </div>
       </section>
 
-      <section id="buy" class="section product-section">
-        <div class="product-layout">
-          <div class="gallery">
-            <figure class="gallery-main">
-              <img id="gallery-main" src="assets/gloam-hero.jpg" alt="" />
-            </figure>
-            <div class="gallery-thumbs" id="gallery-thumbs"></div>
-          </div>
-
-          <div class="buy-card" id="product-card">
-            <p class="kicker">The only SKU</p>
-            <h2 id="product-name">The Lamp</h2>
-            <p class="price-line">
-              <span data-price class="price">€39</span>
-              <span class="price-usd" data-usd></span>
-            </p>
-            <p class="ship-note" id="ship-note"></p>
-            <p class="desc" id="product-desc"></p>
-            <ul class="includes" id="includes"></ul>
-            <dl class="specs" id="specs"></dl>
-
-            <form id="qty-form" class="qty-row" aria-label="Quantity">
-              <label>
-                <span>Qty</span>
-                <input
-                  id="qty"
-                  name="qty"
-                  type="number"
-                  min="1"
-                  max="5"
-                  value="1"
-                />
-              </label>
-              <a class="btn primary" href="#checkout" id="go-checkout">
-                Order this lamp
-              </a>
-            </form>
-            <p class="fine">
-              Photos are the look. Your unit comes from the supplier you see in
-              the launch notes — order a sample before you run ads.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="ships" class="section">
-        <div class="section-head">
-          <p class="index">How it ships</p>
-          <h2>No closet of lamps.</h2>
-          <p class="lede">
-            That is dropshipping: you pay here, a supplier posts the carton to
-            the address you give. We never touch the box.
-          </p>
-        </div>
-        <ol class="steps">
+      <section class="band">
+        <h2>How it arrives</h2>
+        <ol class="how">
           <li>
-            <span class="step-num">01</span>
             <strong>You order</strong>
-            <span>Pay. Leave a shipping address. That’s the whole checkout.</span>
+            Pay and leave an EU address.
           </li>
           <li>
-            <span class="step-num">02</span>
             <strong>A warehouse packs it</strong>
-            <span>We place the same order with the supplier, to your door. Not from our flat.</span>
+            We place the same order with the supplier, to your door.
           </li>
           <li>
-            <span class="step-num">03</span>
-            <strong>7–14 days, usually</strong>
-            <span>EU stock is faster. Factory stock is slower. You get a tracking link when they scan it.</span>
+            <strong>You plug it in</strong>
+            Tracking when they scan the carton. Usually 7–14 days.
           </li>
         </ol>
       </section>
-
-      <section id="checkout" class="section checkout-section">
-        <div class="section-head">
-          <p class="index">Order</p>
-          <h2>Where should it go?</h2>
-          <p class="lede" id="checkout-lede">
-            EU addresses only for now. Price includes shipping. You’ll get a
-            confirmation by email.
-          </p>
-        </div>
-
-        <form id="order-form" class="order-form" novalidate>
-          <fieldset class="fields">
-            <legend class="sr">Contact</legend>
-            <label class="field">
-              <span>Name <em>*</em></span>
-              <input id="name" name="name" type="text" required autocomplete="name" />
-            </label>
-            <label class="field">
-              <span>Email <em>*</em></span>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                autocomplete="email"
-              />
-            </label>
-            <label class="field">
-              <span>Phone</span>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                placeholder="For the courier"
-              />
-            </label>
-          </fieldset>
-
-          <fieldset class="fields">
-            <legend class="sr">Ship to</legend>
-            <label class="field wide">
-              <span>Address <em>*</em></span>
-              <input
-                id="line1"
-                name="line1"
-                type="text"
-                required
-                autocomplete="address-line1"
-              />
-            </label>
-            <label class="field wide">
-              <span>Apt / extra</span>
-              <input
-                id="line2"
-                name="line2"
-                type="text"
-                autocomplete="address-line2"
-              />
-            </label>
-            <label class="field">
-              <span>City <em>*</em></span>
-              <input id="city" name="city" type="text" required autocomplete="address-level2" />
-            </label>
-            <label class="field">
-              <span>Postcode <em>*</em></span>
-              <input
-                id="postcode"
-                name="postcode"
-                type="text"
-                required
-                autocomplete="postal-code"
-              />
-            </label>
-            <label class="field wide">
-              <span>Country <em>*</em></span>
-              <select id="country" name="country" required autocomplete="country-name">
-                <option value="">Choose…</option>
-              </select>
-            </label>
-          </fieldset>
-
-          <p class="order-total">
-            <span id="order-summary">The Lamp × 1</span>
-            <strong id="order-total">€39</strong>
-          </p>
-
-          <button class="btn primary" type="submit" id="place-order">
-            Place order
-          </button>
-          <p class="fine" id="pay-hint">
-            Payment is not on a card form yet. This sends the order to us so we
-            can take payment and tell the warehouse — we will not ship before
-            you pay.
-          </p>
-        </form>
-      </section>
-
-      <section id="faq" class="section">
-        <div class="section-head">
-          <p class="index">Questions</p>
-          <h2>Plain answers</h2>
-        </div>
-        <div class="faq-list">
-          <details open>
-            <summary>What do I actually get?</summary>
-            <p>
-              One matte-black sunset lamp and a USB-C cable. It throws a round
-              gold light on a wall. It is not a speaker, a clock, or a smart
-              home hub.
-            </p>
-          </details>
-          <details>
-            <summary>Is this dropshipping?</summary>
-            <p>
-              Yes. We don’t keep stock. After you pay, the same lamp is ordered
-              from a supplier and addressed to you. That’s why it takes a week
-              or two, not overnight.
-            </p>
-          </details>
-          <details>
-            <summary>When will it arrive?</summary>
-            <p>
-              Plan for 7–14 days inside the EU if the supplier has local stock.
-              If they ship from the factory, it can take longer. Tracking goes
-              out when the carton is scanned.
-            </p>
-          </details>
-          <details>
-            <summary>Can I return it?</summary>
-            <p>
-              Yes — 14 days after it arrives, unused, in the same condition,
-              under EU withdrawal rules. Email
-              <a href="mailto:khourypaul19@gmail.com">khourypaul19@gmail.com</a>.
-              Return postage is on you unless the lamp is faulty.
-            </p>
-          </details>
-          <details>
-            <summary>Why isn’t this on Amazon?</summary>
-            <p>
-              This shop is one product and one page. If you want a marketplace
-              listing with a thousand twins, that’s not this.
-            </p>
-          </details>
-        </div>
-      </section>
     </main>
 
-    <footer class="foot">
-      <div class="foot-brand">
+    <footer class="end">
+      <div>
         <strong>Gloam</strong>
-        <span>A new shop. Not Lab Dream Engine Studio.</span>
+        <span>A lighting shop. One lamp.</span>
       </div>
       <p>
-        Sold by Paul ·
+        <a href="shipping.html">Shipping & returns</a>
+        ·
         <a href="mailto:khourypaul19@gmail.com">khourypaul19@gmail.com</a>
-        · Prices include VAT where it applies · © 2026
+        · © 2026
       </p>
     </footer>
 
-    <div class="buy-bar" id="buy-bar">
-      <span>The Lamp · <span data-price>€39</span></span>
-      <a class="btn primary small" href="#checkout">Order</a>
-    </div>
-
-    <dialog id="order-ready" class="dialog">
-      <form method="dialog" class="ready-form">
-        <h3>Order ticket copied</h3>
-        <p id="ready-copy">
-          Your details are copied. We’ll take payment next and send the
-          warehouse your address — not the other way around.
-        </p>
-        <pre id="order-ticket" class="ticket"></pre>
-        <div class="dialog-actions">
-          <button class="btn ghost" value="cancel" type="submit">Close</button>
-          <button class="btn primary" id="order-next" value="ok" type="submit">
-            Email this order
-          </button>
-        </div>
-      </form>
-    </dialog>
-
-    <script src="config.js"></script>
-    <script src="shop.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/home.js"></script>
   </body>
 </html>
