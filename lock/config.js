@@ -1,0 +1,146 @@
+/* Still Lock — everyday lockscreens. Sister shop to LDES. */
+
+window.STILL_LOCK = {
+  currency: "EUR",
+  usdPerEur: 1.16,
+  tiktok: "https://www.tiktok.com/@ldes.ai",
+  contactEmail: "khourypaul19@gmail.com",
+  ldesUrl: "../",
+  gumroad: "https://paulkinetic25.gumroad.com",
+
+  products: [
+    {
+      id: "lock-kit-01",
+      name: "Lock Kit 01",
+      kind: "kit",
+      price: 12,
+      badge: "8 locks · live",
+      image: "../assets/pack-walls.jpg",
+      description:
+        "Eight phone locks from the quiet worlds: harbor fog, night rails, a keyhole in the mountain. Room for the clock.",
+      includes: [
+        "8 × phone lockscreens (1080×1920)",
+        "Desktop sizes included",
+        "Personal use on your devices",
+      ],
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_W",
+    },
+    {
+      id: "lock-kit-02",
+      name: "Lock Kit 02",
+      kind: "kit",
+      price: 12,
+      badge: "8 locks · live",
+      image: "../assets/pack-walls-02.jpg",
+      description:
+        "Pocket worlds and night harbor — teacup village, bottle ocean, cobble rain. Same kit, new doors.",
+      includes: [
+        "8 × phone lockscreens",
+        "Phone + desktop sizes",
+        "Personal use on your devices",
+      ],
+      checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_W2",
+    },
+    {
+      id: "lock-night",
+      name: "Night Dim Kit",
+      kind: "kit",
+      price: 9,
+      badge: "8 dim locks",
+      image: "../assets/gallery/LDES_Wall_08_Cabin_Reflection.jpg",
+      description:
+        "Locks that stay dark at 2am. No white blast when you check the time.",
+      includes: [
+        "8 × extra-dim phone locks",
+        "Tested for nightstand glances",
+        "Personal use on your devices",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+    {
+      id: "lock-month",
+      name: "Month Lock",
+      kind: "month",
+      price: 5,
+      badge: "calendar · monthly",
+      image: "../assets/gallery/LDES_Wall_03_Library_Letters.jpg",
+      description:
+        "One lock with this month on it. Buy it again when the month turns — the product that comes back.",
+      includes: [
+        "1 × dated lockscreen",
+        "Phone size, clock-safe layout",
+        "New drop at the start of each month",
+      ],
+      checkoutUrl: "",
+      status: "soon",
+    },
+  ],
+
+  locks: [
+    {
+      id: "mist-harbor",
+      title: "Mist Harbor",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_01_Mist_Harbor.jpg",
+      time: "6:14",
+      date: "Tuesday, 18 August",
+    },
+    {
+      id: "fog-train",
+      title: "Fog Train",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_02_Fog_Train.jpg",
+      time: "23:41",
+      date: "Friday, 4 October",
+    },
+    {
+      id: "library",
+      title: "Library Letters",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_03_Library_Letters.jpg",
+      time: "9:41",
+      date: "Monday, 12 January",
+    },
+    {
+      id: "mountain",
+      title: "Mountain Keyhole",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_04_Mountain_Keyhole.jpg",
+      time: "16:08",
+      date: "Sunday, 2 March",
+    },
+    {
+      id: "forge",
+      title: "Forge Street",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_05_Forge_Street.jpg",
+      time: "19:22",
+      date: "Thursday, 9 July",
+    },
+    {
+      id: "courtyard",
+      title: "Courtyard Dusk",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_06_Courtyard_Dusk.jpg",
+      time: "20:05",
+      date: "Saturday, 21 June",
+    },
+    {
+      id: "lighthouse",
+      title: "Lighthouse Path",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_07_Lighthouse_Path.jpg",
+      time: "5:47",
+      date: "Wednesday, 30 April",
+    },
+    {
+      id: "cabin",
+      title: "Cabin Reflection",
+      kitId: "lock-kit-01",
+      image: "../assets/gallery/LDES_Wall_08_Cabin_Reflection.jpg",
+      time: "2:11",
+      date: "Nightstand",
+    },
+  ],
+};
