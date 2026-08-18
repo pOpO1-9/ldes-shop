@@ -286,4 +286,15 @@ window.LDES_CONFIG = {
     image: "assets/pack-custom.jpg",
     checkoutUrl: "https://paulkinetic25.gumroad.com/l/LDES_Custom",
   },
+
+  /**
+   * Productized studio work — not consulting.
+   * Create Gumroad LDES_Brand at this price, then paste checkoutUrl.
+   */
+  brand: {
+    price: 249,
+    checkoutUrl: "",
+    mailto:
+      "mailto:khourypaul19@gmail.com?subject=LDES%20brand%20scene&body=What%20should%20appear%20in%20the%20scene%3A%0A%0AWhere%20it%20will%20be%20used%20(TikTok%20%2F%20site%20%2F%20ads)%3A%0A%0ALink%20to%20the%20thing%3A%0A",
+  },
 };

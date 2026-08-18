@@ -367,6 +367,23 @@
     customPrice.innerHTML = moneyBoth(config.custom.price);
   }
 
+  const brandPrice = document.querySelector("[data-brand-price]");
+  const brandBuy = document.getElementById("brand-buy");
+  if (brandPrice && config.brand) {
+    brandPrice.innerHTML = moneyBoth(config.brand.price);
+  }
+  if (brandBuy && config.brand) {
+    if (hasUrl(config.brand.checkoutUrl)) {
+      brandBuy.textContent = "Continue to checkout";
+      brandBuy.addEventListener("click", (e) => {
+        e.preventDefault();
+        buy(config.brand.checkoutUrl);
+      });
+    } else if (config.brand.mailto) {
+      brandBuy.setAttribute("href", config.brand.mailto);
+    }
+  }
+
   if (customForm) {
     customForm.addEventListener("submit", (e) => {
       e.preventDefault();
