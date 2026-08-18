@@ -438,22 +438,11 @@ button:focus-visible {
   font-size: 0.58rem;
 }
 
-.lock-card figcaption {
-  padding: 0 0.15rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-}
-
 .lock-name {
   font-family: var(--serif);
   font-size: 1.05rem;
-}
-
-.lock-meta {
-  color: var(--muted);
-  font-size: 0.72rem;
+  padding: 0 0.2rem;
+  text-align: center;
 }
 
 .catalog {
