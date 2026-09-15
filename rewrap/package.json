@@ -1,0 +1,9 @@
+{
+  "name": "rewrap",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Rewrap — 12 padel overgrips. Standalone shop.",
+  "scripts": {
+    "start": "python3 -m http.server 4173"
+  }
+}

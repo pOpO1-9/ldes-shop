@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout — Rewrap</title>
+    <meta name="theme-color" content="#071018" />
+    <link rel="icon" href="assets/mark.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="word" href="index.html">Rewrap</a>
+      <nav>
+        <a href="index.html#why">Why this</a>
+        <a href="ship.html">Shipping</a>
+      </nav>
+      <button type="button" data-open-bag>Bag <span data-bag-count>0</span></button>
+    </header>
+
+    <main class="check">
+      <div id="empty">
+        <h1>Bag is empty</h1>
+        <p>Add a sleeve first.</p>
+        <a class="btn" href="index.html">The sleeve</a>
+      </div>
+      <div id="pane" hidden>
+        <form id="form" novalidate>
+          <h1>Where should the sleeve go?</h1>
+          <p class="lede">EU only. Postage is in the €16. We take payment before the warehouse ships.</p>
+          <label>Name <input id="full-name" required autocomplete="name" /></label>
+          <label>Email <input id="email" type="email" required autocomplete="email" /></label>
+          <label>Phone <input id="phone" type="tel" autocomplete="tel" /></label>
+          <label>Address <input id="line1" required autocomplete="address-line1" /></label>
+          <label>Apt / extra <input id="line2" autocomplete="address-line2" /></label>
+          <div class="two">
+            <label>City <input id="city" required autocomplete="address-level2" /></label>
+            <label>Postcode <input id="postcode" required autocomplete="postal-code" /></label>
+          </div>
+          <label>
+            Country
+            <select id="country" required autocomplete="country-name">
+              <option value="">Choose…</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Place order</button>
+          <p class="fine">
+            Card checkout is not on this page yet. This emails the ticket so we
+            can charge you, then tell the warehouse. Unpaid sleeves do not ship.
+          </p>
+        </form>
+        <aside>
+          <h2>Order</h2>
+          <ul id="lines"></ul>
+          <p class="sum">Total <strong id="total">€0</strong></p>
+        </aside>
+      </div>
+    </main>
+
+    <dialog id="done">
+      <form method="dialog">
+        <h2>Ticket copied</h2>
+        <pre id="ticket"></pre>
+        <div class="row">
+          <button class="ghost" value="cancel">Close</button>
+          <button class="btn" id="send" value="ok">Email this order</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="js/catalog.js"></script>
+    <script src="js/bag.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
